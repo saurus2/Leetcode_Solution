@@ -1,0 +1,21 @@
+class Solution:    
+    def firstMissingPositive(self, nums: List[int]) -> int:
+        maxValue = max(nums) + 1
+        minValue = 21e8
+        nSize = len(nums)
+        nums.sort()
+        start = 1
+        flag = 0
+        for ii in range(nSize):
+            i = nums[ii]
+            if i > 0:
+                if ii > 0 and nums[ii] == nums[ii-1]:
+                    continue
+                if i == start:
+                    start += 1
+                else:
+                    return start
+        if maxValue <= 0:
+            return 1
+        else:
+            return maxValue
