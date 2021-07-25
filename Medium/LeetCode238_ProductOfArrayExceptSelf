@@ -1,0 +1,27 @@
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        nLen = len(nums)
+        ans = [1] * nLen
+        pro = nums[0]
+        zCnt = 0
+        
+        for i in range(1,nLen):
+            if nums[i] != 0:
+                pro *= nums[i]
+                #print(i,": pro =", pro)
+            else:
+                zCnt += 1
+        #print("p:", pro, "z:", zCnt)
+        
+        for i in range(nLen):
+            if zCnt > 1:
+                ans[i] = 0
+            elif zCnt > 0 and nums[i] != 0:
+                ans[i] = 0
+            elif nums[i] == 0:
+                ans[i] = pro
+            else:
+                ans[i] = pro // nums[i]
+            
+        #print(ans)
+        return ans
