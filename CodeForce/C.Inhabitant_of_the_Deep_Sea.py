@@ -5,6 +5,7 @@
 # Point: 2. Calculation is necessary
 # Point: 3. Front can be removed by the half of K, Because when front value is less than K even kraken has to come back to front
 # Point: 4. Divide even and odd, cause kraken can come back to front and attack front one more than end
+# Point: 5. It is available to solve by the half of K because another for loop traverse ships from the end with the half of K.
 ts = int(input())
 while ts:
     n, k = map(int, input().split())
